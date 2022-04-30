@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:food_delivery/home/food_page_body.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 
@@ -20,29 +21,33 @@ class _MainFoodPageState extends State<MainFoodPage> {
       children: [
         Container(
           child: Container(
-              margin: EdgeInsets.only(top: 45, bottom: 15),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 45, bottom: 15),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    children: const [
-                      BigText(
+                    children: [
+                      const BigText(
                         text: 'Vietnam',
                         color: AppColors.mainColor,
                       ),
-                      SmallText(
-                        text: 'Hanoi',
-                        color: Colors.black54,
-                      ),
-                      Icon(Icons.arrow_drop_down_rounded)
+                      Row(
+                        children: const [
+                          SmallText(
+                            text: 'Hanoi',
+                            color: Colors.black54,
+                          ),
+                          Icon(Icons.arrow_drop_down_rounded),
+                        ],
+                      )
                     ],
                   ),
                   Center(
                     child: Container(
                       width: 45,
                       height: 45,
-                      child: Icon(
+                      child: const Icon(
                         Icons.search,
                         color: Colors.white,
                       ),
@@ -54,6 +59,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ],
               )),
         ),
+        const FoodPageBody()
       ],
     ));
   }
