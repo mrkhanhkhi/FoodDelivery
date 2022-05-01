@@ -1,6 +1,9 @@
+import 'dart:html';
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
+import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/icon_and_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
@@ -16,7 +19,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   var _currentPageValue = 0.0;
   double _scaleFactor = 0.85;
-  double _height = 220;
+  double _height = Dimensions.pageViewContainterHeight;
 
   @override
   void initState() {
@@ -38,7 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Column(
       children: [
         Container(
-          height: 320,
+          height: Dimensions.pageViewHeight,
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -96,10 +99,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
           Container(
-            height: _height,
-            margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
+            height: Dimensions.pageViewContainterHeight,
+            margin: EdgeInsets.only(
+                top: Dimensions.height10,
+                left: Dimensions.height10,
+                right: Dimensions.height10),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(Dimensions.radius30),
                 color: Colors.white,
                 image: const DecorationImage(
                     image: AssetImage('assets/image/food0.png'),
@@ -108,10 +114,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120,
-              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+              height: Dimensions.pageViewTextContainterHeight,
+              margin: EdgeInsets.only(
+                  left: Dimensions.width30,
+                  right: Dimensions.width30,
+                  bottom: Dimensions.height30),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white,
                 boxShadow: const [
                   BoxShadow(
@@ -125,13 +134,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ],
               ),
               child: Container(
-                  padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+                  padding: EdgeInsets.only(
+                      top: Dimensions.height15,
+                      left: Dimensions.height15,
+                      right: Dimensions.height15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const BigText(text: 'This is a fucking sandwich'),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: Dimensions.height10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,38 +154,38 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 (index) => const Icon(Icons.star,
                                     color: AppColors.mainColor, size: 15)),
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: Dimensions.height10,
                           ),
                           const SmallText(text: '4.5 km'),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: Dimensions.height10,
                           ),
                           const SmallText(text: '1000 comments')
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: Dimensions.height20,
                       ),
                       Row(
-                        children: const [
-                          IconAndText(
+                        children: [
+                          const IconAndText(
                               icon: Icons.circle_sharp,
                               text: "Normal",
                               color: AppColors.textColor,
                               iconColor: AppColors.iconColor1),
                           SizedBox(
-                            width: 10,
+                            height: Dimensions.height10,
                           ),
-                          IconAndText(
+                          const IconAndText(
                               icon: Icons.location_on,
                               text: "1.7 km",
                               color: AppColors.textColor,
                               iconColor: AppColors.mainColor),
                           SizedBox(
-                            width: 10,
+                            height: Dimensions.height10,
                           ),
-                          IconAndText(
+                          const IconAndText(
                               icon: Icons.access_time_rounded,
                               text: "Normal",
                               color: AppColors.textColor,
